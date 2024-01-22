@@ -3,10 +3,25 @@ import {ref, onBeforeMount, computed} from 'vue'
 import { useRoute, RouterLink } from 'vue-router';
 const food = ref({});
 const route = useRoute();
+
+const filteredIngredients = computed(() => {
+  const ingredients = [];
+  for (let index = 1; index <= 20; index++) {
+    const ingredient = food.value.meals[0]['strIngredient' + index];
+    const measure = food.value.meals[0]['strMeasure' + index];
+
+    if (ingredient && ingredient.length > 1 && measure) {
+      ingredients.push(`${measure} ${ingredient}`);
+    }
+  }
+  return ingredients;
+});
+
+
 onBeforeMount(async () => {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`);
     const data = await response.json();
-    // console.log(data)
+    console.log(data)
     food.value = data;
     
 });
@@ -46,88 +61,8 @@ onBeforeMount(async () => {
                         <h3 class="font-bold flex items-center text-[18px]">Ingredients</h3>
                     </div>
                     <ul class="list-disc px-[5%] flex flex-col gap-2 text-[18px]">
-                        <li v-if="item.strIngredient1.length > 1 && item.strMeasure1 !== null">
-                            {{ item.strMeasure1 }}
-                            {{ item.strIngredient1 }}
-                        </li> 
-                        <li v-if="item.strIngredient2.length > 1">
-                            {{ item.strMeasure2 }}
-                            {{ item.strIngredient2 }}
-                        </li>
-                        <li v-if="item.strIngredient3.length > 1">
-                            {{ item.strMeasure3 }}
-                            {{ item.strIngredient3 }}
-                        </li>
-                        <li v-if="item.strIngredient4.length > 1">
-                            {{ item.strMeasure4 }}
-                            {{ item.strIngredient4 }}
-                        </li>
-                        <li v-if="item.strIngredient5.length > 1">
-                            {{ item.strMeasure5 }}
-                            {{ item.strIngredient5 }}
-                        </li>
-                        
-                        <li v-if="item.strMeasure6 !== null  && item.strIngredient6.length > 1">
-                            {{ item.strMeasure6 }}
-                            {{ item.strIngredient6 }}
-                        </li>
-                        <li v-if="item.strMeasure7 !== null  && item.strIngredient7.length > 1">
-                            {{ item.strMeasure7 }}
-                            {{ item.strIngredient7 }}
-                        </li>
-                        <li v-if="item.strMeasure8 !== null  && item.strIngredient8.length > 1">
-                            {{ item.strMeasure8 }}
-                            {{ item.strIngredient8 }}
-                        </li>
-                        <li v-if="item.strMeasure9 !== null  && item.strIngredient9.length > 1">
-                            {{ item.strMeasure9 }}
-                            {{ item.strIngredient9 }}
-                        </li>
-                        
-                        <li v-if="item.strMeasure10 !== null  && item.strIngredient10.length > 1">
-                            {{ item.strMeasure10 }}
-                            {{ item.strIngredient10 }}
-                        </li>
-                        <li v-if="item.strMeasure11 !== null  && item.strIngredient11.length > 1">
-                            {{ item.strMeasure11 }}
-                            {{ item.strIngredient11 }}
-                        </li>
-                        <li v-if="item.strMeasure12 !== null  && item.strIngredient12.length > 1">
-                            {{ item.strMeasure12 }}
-                            {{ item.strIngredient12 }}
-                        </li>
-                        <li v-if="item.strMeasure13 !== null  && item.strIngredient13.length > 1">
-                            {{ item.strMeasure13 }}
-                            {{ item.strIngredient13 }}
-                        </li>
-                        <li v-if="item.strMeasure14 !== null  && item.strIngredient14.length > 1">
-                            {{ item.strMeasure14 }}
-                            {{ item.strIngredient14 }}
-                        </li>
-                        <li v-if="item.strMeasure15 !== null  && item.strIngredient15.length > 1">
-                            {{ item.strMeasure15 }}
-                            {{ item.strIngredient15 }}
-                        </li>
-
-                        <li v-if="item.strMeasure16 !== null  && item.strIngredient16.length > 1">
-                            {{ item.strMeasure16 }}
-                            {{ item.strIngredient16 }}
-                        </li>
-                        <li  v-if="item.strMeasure17 !== null  && item.strIngredient17.length > 1">
-                            {{ item.strMeasure17 }}
-                            {{ item.strIngredient17 }}
-                        </li>
-                        <li v-if="item.strMeasure18 !== null  && item.strIngredient18.length > 1">
-                            {{ item.strMeasure18 }}
-                            {{ item.strIngredient18 }}
-                        </li>
-                        <li v-if="item.strMeasure19 !== null  && item.strIngredient19.length > 1">
-                            {{ item.strMeasure19 }}
-                            {{ item.strIngredient19 }}
-                        </li>
-                        <li v-if="item.strMeasure20 !== null  && item.strIngredient20.length > 1">
-                            {{ item.strMeasure20 }}
-                            {{ item.strIngredient20 }}
+                        <li v-for="(ingredient, index) in filteredIngredients" :key="index">
+                            {{ ingredient }}
                         </li>
                     </ul>
                 </div>

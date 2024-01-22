@@ -35,6 +35,7 @@ const handle_search = () => {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search.value}`)
             .then(response => response.json())
             .then(data => {
+                
                 items.value = data.meals ? data.meals : [];
                 search.value = "";
             })
@@ -54,14 +55,14 @@ const overlay = ref(false)
         <section class="flex flex-col lg:flex-row justify-between gap-3 sm:gap-8 px-3 sm:px-5 xl:px-14 ">
             <div class="flex flex-col  sm:w-full lg:w-[35%] gap-3 sm:gap-6">
               <!-- test start -->
-              <div class="flex w-full justify-between gap-2 sm:gap-4 md:gap-6 " >
+              <div class="flex w-full justify-between gap-1 sm:gap-4 md:gap-6 " >
                   <button @click="overlay = !overlay " class="text-white bg-purple-500 p-3 rounded-2xl flex items-center justify-center gap-1 w-full" name="Categories">
                     <i class="fa-solid fa-layer-group"></i>
                     <div class="font-semibold">categories</div>
                   </button>
-                  <router-link to="/home" class="relative flex justify-center items-center  bg-white rounded-full  p-4 py-3 gap-2 h-12 text-[#394150] w-full lg:hidden">
-                        <i class="fa-regular fa-square-plus "></i>
-                        <div class="font-semibold">CREATE</div>
+                  <router-link to="/dashboard" class="relative flex justify-center items-center  bg-white rounded-full  p-4 py-3 gap-2 h-12 text-[#394150] w-full lg:hidden">
+                        <i class="fa-solid fa-book text-green-800"></i>
+                        <div class="font-semibold">Dashboard</div>
                   </router-link>
                   <button @click="handleSignOut" v-if="isLoggedIn" class="bg-yellow-400 px-3 rounded-xl flex gap-2 justify-center items-center w-full lg:hidden">
                         <i class="fa-solid fa-right-from-bracket text-base"></i>
@@ -96,9 +97,9 @@ const overlay = ref(false)
                         <input type="text"  placeholder="Search recipes and more..." name="search-input"  class="border border-[#394150] bg-transparent placeholder:text-[#394150] text-white rounded-full w-full p-3 px-14 " v-model="search">
                         <img src="../assets/Search.svg" alt="" srcset="" class="absolute top-3 left-4">
                     </form>
-                    <router-link to="/home" class="relative flex justify-center items-center  bg-white rounded-full  p-8 py-3 gap-2 h-12 text-[#394150]">
-                        <i class="fa-regular fa-square-plus "></i>
-                        <div class="font-semibold">CREATE</div>
+                    <router-link to="/dashboard" class="relative flex justify-center items-center  bg-white rounded-full  p-8 py-3 gap-2 h-12 text-[#394150]">
+                        <i class="fa-solid fa-book text-green-800"></i>
+                        <div class="font-semibold">Dashboard</div>
                     </router-link>
                     <button @click="handleSignOut" v-if="isLoggedIn" class="bg-yellow-400 px-3 rounded-xl flex gap-2 justify-center items-center">
                         <i class="fa-solid fa-right-from-bracket text-base"></i>

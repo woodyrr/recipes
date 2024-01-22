@@ -1,26 +1,43 @@
-// // Import the functions you need from the SDKs you need
-// import firebase from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// import "firebase/database"
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+// Import the functions you need from the SDKs you need
+import firebase from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import "firebase/firestore"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const Config = {
-//   apiKey: "AIzaSyAc1sTUtbtUwc72YDjdsXM4rT7Pf4VCHZo",
-//   authDomain: "recipe-page-a168a.firebaseapp.com",
-//   projectId: "recipe-page-a168a",
-//   storageBucket: "recipe-page-a168a.appspot.com",
-//   messagingSenderId: "540105599417",
-//   appId: "1:540105599417:web:68b26438060496e3412e68",
-//   measurementId: "G-G49BH7ELT1"
-// };
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const Config = {
+  apiKey: "AIzaSyAc1sTUtbtUwc72YDjdsXM4rT7Pf4VCHZo",
+  authDomain: "recipe-page-a168a.firebaseapp.com",
+  projectId: "recipe-page-a168a",
+  storageBucket: "recipe-page-a168a.appspot.com",
+  messagingSenderId: "540105599417",
+  appId: "1:540105599417:web:68b26438060496e3412e68",
+  measurementId: "G-G49BH7ELT1"
+};
 
-// // Initialize Firebase
+// Initialize Firebase
 // const db = firebase.initializeApp(Config);
-// // const analytics = getAnalytics(apps);
+// const analytics = getAnalytics(apps);
+const firestore = firebase.firestore()
+const messagesCollection = firestore.collection("messages")
+const messagesQuery = messagesCollection.orderBy('createdAt', 'desc').limit(100)
 
+export function useChat(){
+    const messages = ref([])
+    messagesQuery.onSnapshot(snapshot => {
+        messages.value = snapshot.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .reverse()
+    })
+    onMounted(unsubscribe)
+
+    const sendMessage = text => {}
+
+
+    return {messages, sendMessage}
+}
 // export default db;
 
 

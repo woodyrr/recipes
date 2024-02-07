@@ -13,8 +13,27 @@ const register = () => {
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((data) => {
             console.log("successfully signed in!");
-            console.log(auth.currentUser)
+            // console.log(auth.currentUser)
+            // if (acct != null) {
+            //     const personName = acct.getDisplayName();
+            //     const personFamilyName = acct.getFamilyName();
+            //     const personGivenName = acct.getGivenName();
+            //     const personEmail = acct.getEmail();
+            //     const personId = acct.getId();
+            //     const personPhoto = acct.getPhotoUrl();
+            // }
+            
             router.push('/home')
+            // console.log(auth.currentUser.uid)
+            // getAuth()
+            // .getUser(auth.currentUser.uid)
+            // .then((userRecord) => {
+            //     // See the UserRecord reference doc for the contents of userRecord.
+            //     console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
+            // })
+            // .catch((error) => {
+            //     console.log('Error fetching user data:', error);
+            // });
         })
         .catch((error) => {
             console.log(error.code);
@@ -35,17 +54,38 @@ const register = () => {
             
         })
 };
+
+// if (acct != null) {
+//   String personName = acct.getDisplayName();
+//   String personGivenName = acct.getGivenName();
+//   String personFamilyName = acct.getFamilyName();
+//   String personEmail = acct.getEmail();
+//   String personId = acct.getId();
+//   Uri personPhoto = acct.getPhotoUrl();
+// }
 const signInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(getAuth(), provider)
     .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         router.push("/home")
     })
     .catch((error) => {
 
     })
 };
+
+let guestEmail = 'testdemo@gmail.com'
+let guestPassword = 'Welcome1'
+
+let copy1 =  () =>{
+    navigator.clipboard.writeText(guestEmail);
+    alert('Email copied to clipboard');
+}
+let copy2 =  () =>{
+    navigator.clipboard.writeText(guestPassword);
+    alert('password copied to clipboard');
+}
 </script>
 
 <template>
@@ -62,7 +102,6 @@ const signInWithGoogle = () => {
                         </div>
                     </div>
                     
-                    
                     <div class="flex flex-col gap-2 text-[#E5E7EB]">
                         <label for="Email" name="Email" class="text-[18px]">Email</label>
                         <!-- <div class="text-[14px]">Name</div> -->
@@ -70,11 +109,28 @@ const signInWithGoogle = () => {
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="password" name="password" class="text-[18px]">Password</label>
-                        <!-- <div class="text-[14px]">Email</div> -->
                         <input v-model="password" type="text" placeholder="password"  id="password"  class="password border-2 border-[#4D5562] py-3 px-4 rounded-xl bg-transparent outline outline-none hover:border-[#652CD1]" required>
                     </div>
                 </div>
                 <p v-if="errorMsg">{{ errorMsg }}</p>
+                <section class="guest flex gap-4 px-[15px]">
+                    <h2 class="text-yellow-400 font-bold text-lg">Guest:</h2>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2 text-[#fffefe]">
+                            <div>Email</div>
+                            <button @click="copy1">
+                                <img src="../assets/link.svg" class=" h-5 lg:h-6">
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 text-[#fffefe]">
+                            <div>password</div>
+                            <button @click="copy2" >
+                                <img src="../assets/link.svg" class=" h-5 lg:h-6 ">
+                            </button>
+                        </div>
+                    </div>
+                    
+                </section>
                 <div class=" w-full flex flex-col items-center justify-center text-white gap-3">
                     <button @click="register" type="submit" class="btn1 bg-gradient-to-l from-[#845EEE] to-[#652CD1] rounded-full px-[10%] py-2" >Submit</button>
                     <div>or</div>

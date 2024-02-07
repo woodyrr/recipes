@@ -14,8 +14,10 @@ const foodlist1 = ref({});
 fetch(`${base1}`)
 .then(response => response.json())
 .then(data => {
+    // console.log(data)
     foodlist1.value = data
 });
+
 
 const foodlist2 = ref({});
 fetch(`${base2}`)

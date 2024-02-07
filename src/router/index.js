@@ -1,15 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import home from '../components/home.vue'
 import details from '../views/details.vue'
-// import ldetails from '../views/Ldetails.vue'
 import categories from '../components/categoryDetails.vue'
-// import lcategories from '../components/LcategoryDetails.vue'
-// import lcategories from '../components/LcategoryDetails.vue'
 import area from '../views/areadetails.vue'
-// import larea from '../views/Lareadetails.vue'
 import loggedin from '../views/login.vue'
-// import search from '../views/search.vue'
 import sign from '../views/signup.vue'
+import dashboard from '../views/dashboard.vue'
+import currentUser from '../views/user.vue'
+import dashDetails from '../views/dashdetails.vue'
+
 import {getAuth, onAuthStateChanged} from "firebase/auth"
 
 const router = createRouter({
@@ -29,26 +28,11 @@ const router = createRouter({
       name:'meal Details',
       component:details
     },
-    // {
-    //   path: '/lmeals/:id',
-    //   name:'lmeal Details',
-    //   component:ldetails
-    // },
-    // {
-    //   path: '/larea/:id',
-    //   name:'logged meal Details',
-    //   component:larea
-    // },
     {
       path: '/category/:id',
       name:'category Details',
       component:categories
     },
-    // {
-    //   path: '/lcategory/:id',
-    //   name:'logged category Details',
-    //   component:lcategories
-    // },
     {
       path: '/area/:id',
       name:'area Details',
@@ -64,16 +48,21 @@ const router = createRouter({
       name:'signUp',
       component:sign
     },
-    // {
-    //   path: '/search',
-    //   name:'search',
-    //   component:search,
-    //   meta: {
-    //     requiresAuth:true,
-
-    //   },
-    // },
-    
+    {
+      path: '/dashboard',
+      name:'Dashboard',
+      component:dashboard
+    },
+    {
+      path: '/dashmeals/:id',
+      name:'Dashboard meals details',
+      component:dashDetails
+    },
+    {
+      path: '/user',
+      name:'userName',
+      component:currentUser
+    },
   ],
 });
 

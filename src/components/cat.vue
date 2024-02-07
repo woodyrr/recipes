@@ -1,4 +1,4 @@
-
+<!-- 
 <script setup>
     import {ref} from 'vue'
     const baseUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php?'
@@ -32,4 +32,8 @@
 .itemimg{
     image-rendering: -webkit-optimize-contrast;
 }
-</style>
+</style> -->
+
+<template>
+    
+</template>

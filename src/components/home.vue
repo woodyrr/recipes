@@ -114,7 +114,7 @@ const overlay2 = ref(true)
                         <i class="fa-solid fa-book text-green-800"></i>
                         <div class="font-semibold">Dashboard</div>
                     </router-link>
-                    <div class="bg-green-300 flex items-center px-2 rounded-full font-extrabold text-[9px] lg:text-[16px]">
+                    <div class="bg-green-300 flex items-center px-2 rounded-full font-extrabold text-[9px] lg:text-[16px] text-center">
                         {{ usersName.value }}
                     </div>
                     <button @click="handleSignOut" v-if="isLoggedIn" class="bg-yellow-400 px-3 rounded-xl flex gap-2 justify-center items-center">

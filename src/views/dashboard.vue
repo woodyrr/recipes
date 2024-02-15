@@ -116,7 +116,7 @@ export default {
                 <img src="../assets/Expand_left.svg" alt="" srcset="">
                 <div>Back to categories</div>
             </router-link>
-            <div class="bg-green-300 flex items-center px-2 rounded-full font-extrabold text-[9px] lg:text-[16px]">
+            <div class="bg-green-300 flex items-center px-2 rounded-full font-extrabold text-[9px] lg:text-[16px] text-center">
                 {{ usersName.value }}
             </div>
             <button class="flex gap-2 bg-yellow-400 rounded-2xl items-center p-3 md:p-4 md:px-6" @click="showModal = true">

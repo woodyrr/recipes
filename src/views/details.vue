@@ -29,7 +29,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-    <main class=" w-full  text-[#E5E7EB] px-[2%] sm:px-[5%] md:px-[6%] 2xl:px-[8%] py-10">
+    <main class=" w-full  text-[#E5E7EB] px-[2%] sm:px-[5%] md:px-[6%] 2xl:px-[8%] py-10 ">
         <section class=" flex flex-col gap-10">
             <div class="px-3 flex justify-between text-[12px] md:text-base text-[#394150] w-full">
                 <img src="../assets/logo-light.svg" alt="" srcset="" class=" h-full w-[30%] sm:w-[20%] md:w-[15%] lg:w-[8%]">

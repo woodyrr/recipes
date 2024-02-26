@@ -24,33 +24,4 @@ export default {
 <script setup>
 import { ref } from 'vue';
 const userName = ref('')
-// import { ref } from "vue";
-// import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
-
-// const displayName = ref(false)
-// const auth = getAuth();
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/auth.user
-//     const uid = user.uid;
-//     console.log(uid)
-//     // ...
-//   } else {
-//     // User is signed out
-//     // ...
-//   }
-// });
-
-// updateProfile(auth.currentUser, {
-//   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-// }).then(() => {
-//   // Profile updated!
-//   // ...
-// }).catch((error) => {
-//   // An error occurred
-//   // ...
-// });
-
-// 5rYG8c8il1c9XxFuF9PtPBK7rYq2
 </script>

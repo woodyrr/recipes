@@ -22,11 +22,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 // const app = createApp(App)
-
+//https://recipes-sigma-livid.vercel.app/
 // app.use(router)
 // recipe-page-a168a.firebaseapp.com
 // recipe-page-eosin.vercel.app
 // app.mount('#app')
+//og
+// recipe-page-a168a.firebaseapp.com
 
 //begin
 

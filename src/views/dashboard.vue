@@ -16,7 +16,6 @@ onMounted(() => {
             // console.log(user)
             let names  = user.displayName
             usersName.value = names
-            // console.log(usersName)
             return usersName
             
             // ...
@@ -50,10 +49,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-
-
-
-// console.log(usersName)
 export default {
     name:'app',
     components:{},
@@ -66,7 +61,6 @@ export default {
             Ingredients:this.$refs.recipeIngredients.value,
             instructions:this.$refs.recipeInstructions.value,
             username:usersName.value,
-            // bg:this.getRandomColor()
             });
         },
         // Date.now()
@@ -98,7 +92,6 @@ export default {
                 name:doc.data().name,
                 created:doc.data().date_created,
                 user:doc.data().username,
-                // bg:doc.data().bg
             
             }
         })
@@ -110,7 +103,7 @@ export default {
 }
 </script>
 <template>
-    <section class="flex flex-col gap-10 ">
+    <section class="w-full flex flex-col gap-10 ">
         <header class="px-[5%] flex justify-between text-[12px] lg:text-[18px]  text-[#394150] w-full py-10">
             <router-link to = "/home" class="flex gap-1 bg-white rounded-2xl items-center p-2 md:p-3">
                 <img src="../assets/Expand_left.svg" alt="" srcset="">
@@ -172,3 +165,8 @@ export default {
     
     
 </template>
+<style>
+.body{
+    background-color: aqua;
+}
+</style>

@@ -1,5 +1,6 @@
 import './assets/main.css'
 // import './firebase'
+import { MotionPlugin } from '@vueuse/motion'
 import router from './router'
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -23,6 +24,7 @@ const app = createApp(App)
 app.use(router)
 // recipe-page-a168a.firebaseapp.com
 // recipe-page-eosin.vercel.app
+app.use(MotionPlugin)
 app.mount('#app')
 
 

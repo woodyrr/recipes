@@ -8,6 +8,12 @@ import sign from '../views/signup.vue'
 import dashboard from '../views/dashboard.vue'
 import currentUser from '../views/user.vue'
 import dashDetails from '../views/dashdetails.vue'
+import mainSite from '../views/HomeView.vue'
+import Discover from '../views/Discover.vue'
+import Careers from '../views/Careers.vue'
+import Blog from '../views/Blog.vue'
+import Safety from '../views/Safety.vue'
+import Support from '../views/Support.vue'
 
 import {getAuth, onAuthStateChanged} from "firebase/auth"
 
@@ -29,6 +35,31 @@ const router = createRouter({
       component:details
     },
     {
+      path: '/discover',
+      name:'Discover',
+      component:Discover
+    },
+    {
+      path: '/blog',
+      name:'blog',
+      component:Blog
+    },
+    {
+      path: '/careers',
+      name:'careers',
+      component:Careers
+    },
+    {
+      path: '/support',
+      name:'Support',
+      component:Support
+    },
+    {
+      path: '/safety',
+      name:'safety',
+      component:Safety
+    },
+    {
       path: '/category/:id',
       name:'category Details',
       component:categories
@@ -39,9 +70,14 @@ const router = createRouter({
       component:area
     },
     {
-      path: '/',
+      path: '/Login',
       name:'loggedin',
       component:loggedin
+    },
+    {
+      path: '/',
+      name:'Homeview',
+      component:mainSite
     },
     {
       path: '/signup',

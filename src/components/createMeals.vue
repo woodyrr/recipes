@@ -14,7 +14,6 @@ const addNote = () => {
         id: Math.floor(Math.random() * 1000000),
         text: newNote.value,
         date: new Date(),
-    //   bg: getRandomColor(),
     })
     showModal.value = false;
     newNote.value = ''
@@ -37,50 +36,14 @@ onMounted(async() => {
     });
 })
 
-// let mounted = () =>{
-//     let recipeColection = query(collection(db, 'personal recipes'), orderBy('date'));
-//     const liveMessages = onSnapshot(recipeColection, (snapshot) => {
-//         recipes.value = snapshot.docs.map((doc) => {
-//             return {
-//                 id:doc.id,
-//                 ingredients:doc.data().ingredients,
-//                 name:doc.data().name,
-//                 created:doc.data().date_created
-            
-//             }
-//         })
-//     })
-//     onMounted(liveMessages)
-// }
-
-// mounted(){
-//     const latestQuery = query(collection(db, "messages"), orderBy('date'));
-//     onSnapshot(latestQuery, (snapshot)=>{})
-// }
-
-// const created = () => {
-//     try {
-//         db.collection('personal recipes').get()
-//             console.log("Document written with ID: ", docRef.id);
-//         } 
-//         catch (e) {
-//             console.error("Error adding document: ", e);
-//         }
-// }
-
-// data collection
-
-
 </script>
 
 <template>
-    <!-- <section class="flex flex-col gap-10 "> -->
+    
     <div class="modal w-full bg-[#0E1325] rounded-xl p-[35px] relative flex flex-col gap-4 ">
         <div class="text-gray-100 flex justify-end text-xs">*Recommended that users complete all fields*</div>
         <input type="text" name="Name" placeholder="Enter recipe name" class=" p-3 rounded-lg ">
         <div class="flex flex-col md:flex-row md:justify-between gap-2">
-            <!-- flex flex-col md:flex-row gap-2 -->
-            <!-- flex flex-col md:flex-row md:justify-between gap-2 -->
             <div class="flex flex-col  gap-2">
                 <div v-for="(note, index) in mesure" :key="index" class="">
                     <div class="flex flex-col md:flex-row gap-2">
@@ -104,8 +67,6 @@ onMounted(async() => {
         <button class="p-[10px 20px] text-[20px] w-full bg-green-100  border-none text-black cursor-pointer p-2 font-semibold" @click="addNote">Create Recipe</button>
         <button class=" text-white font-semibold text-[18px]" @click="showModal = false">Cancel</button>
     </div>
-<!-- </div> -->
-
 
     <div class="max-w-[1000px] p-[10px] mt-0 mx-auto">
         <div class="mt-6 flex flex-wrap" >
@@ -116,6 +77,5 @@ onMounted(async() => {
             </div>
         </div>
     </div>
-    <!-- </section> -->
     
 </template>

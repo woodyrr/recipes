@@ -1,32 +1,4 @@
 <script setup>
-// import {ref, onBeforeMount, computed} from 'vue'
-// import { useRoute, RouterLink } from 'vue-router';
-// const food = ref({});
-// const route = useRoute();
-
-// const filteredIngredients = computed(() => {
-//   const ingredients = [];
-//   for (let index = 1; index <= 20; index++) {
-//     const ingredient = food.value.meals[0]['strIngredient' + index];
-//     const measure = food.value.meals[0]['strMeasure' + index];
-
-//     if (ingredient && ingredient.length > 1 && measure) {
-//       ingredients.push(`${measure} ${ingredient}`);
-//     }
-//   }
-//   return ingredients;
-// });
-
-
-// onBeforeMount(async () => {
-//     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`);
-//     const data = await response.json();
-//     console.log(data)
-//     food.value = data;
-    
-// });
-
-
 import {ref, onMounted, onUnmounted} from 'vue'
 import db from'../firebase.js'
 import { collection, addDoc, getDocs, orderBy, onSnapshot, doc, deleteDoc, query} from "firebase/firestore"; 
@@ -50,7 +22,6 @@ const route = useRoute();
         // console.log(user)
         let names  = user.displayName
         usersName.value = names
-        // console.log(user)
         return usersName
 
     } else {
@@ -96,7 +67,7 @@ const route = useRoute();
 </script>
 
 <template>
-    <main class=" w-full  text-[#E5E7EB] px-[2%] sm:px-[5%] md:px-[6%] 2xl:px-[8%] py-10">
+    <main class=" w-full  text-[#E5E7EB] px-[2%] sm:px-[5%] md:px-[6%] 2xl:px-[8%] py-10 ">
         <section class=" flex flex-col gap-8">
             <div class="px-3 flex justify-between text-[12px] md:text-base text-[#394150] w-full">
                 <img src="../assets/logo-light.svg" alt="" srcset="" class=" h-full w-[30%] sm:w-[20%] md:w-[15%] lg:w-[8%]">

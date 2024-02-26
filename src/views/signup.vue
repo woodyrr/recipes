@@ -83,7 +83,7 @@ function displayNames(){
                         <div class="text-[24px]">Create an Account</div>
                         <!-- <div>or</div> -->
                         <div class="flex flex-col justify-center items-center gap-2">
-                            <router-link to="/" class="text-[20px]  px-3 rounded-lg text-black  duration-300 bg-white">Sign in</router-link>
+                            <router-link to="/Login" class="text-[20px]  px-3 rounded-lg text-black  duration-300 bg-white">Sign in</router-link>
                             <p class="text-[10px] ">already have an acount?</p>
                         </div>
                        

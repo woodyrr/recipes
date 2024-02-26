@@ -89,7 +89,7 @@ let copy2 =  () =>{
 </script>
 
 <template>
-    <div class=" flex flex-col justify-center px-[5%] md:px-[25%] pt-[25%] 2xl:pt-[10%] gap-4">
+    <div class=" flex flex-col justify-center px-[5%] md:px-[25%] pt-[25%] md:pt-[15%] lg:pt-[10%] 2xl:pt-[10%] gap-4">
         <form @submit.prevent="login" class=" bg-[#212936] rounded-2xl flex flex-col items-center gap-8 py-8 border border-[#4D5562]">
             <div class="stepone w-[90%] flex flex-col gap-6 text-white  ">
                 <div class="flex flex-col gap-6 text-white  p-[15px] " id="register">
